@@ -11,8 +11,6 @@ import java.util.UUID;
 public class Message<T extends Serializable,R extends Serializable>
         implements Serializable {
     private static final long serialVersionUID = 1L;
-
-    @Id
     private UUID id;
     /**
      * 消息体
