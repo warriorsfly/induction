@@ -1,8 +1,13 @@
-#Induction
+# Induction
 ## Mission
 - websocket server
 - task server
 - chat server
+## Stacks
+- Spring boot stomp with rabbitmq
+- Spring boot webflux
+- reactive database connection
+- maybe redis include
 
 ### For database development (default sql server)
 - see `resources/application.properties`
