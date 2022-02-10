@@ -2,7 +2,18 @@ version: "3.8"
 services:
   rabbit:
     image: rabbitmq:management
+    container_name: rabbitmq
     ports:
       - "5672:5672"
       - "15672:15672"
       - "61613:61613"
+
+  postgres:
+    image: postgres:alpine
+    container_name: induction
+    environment:
+      - POSTGRES_USER=allen
+      - POSTGRES_PASSWORD=walker
+      - POSTGRES_DB=induction
+    ports:
+      - "5432:5432"
