@@ -24,5 +24,9 @@ public enum MessageTo {
     /**
      * 给某Ip发消息
      */
-    Ip
+    Ip,
+    /**
+     * 标签
+     */
+    Tag
 }

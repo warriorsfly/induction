@@ -3,11 +3,12 @@ package com.warriorsfly.induction.domain;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.UUID;
 
 @Data
-public class Room {
+public class Room implements Serializable {
     @Id
     private UUID id;
 
