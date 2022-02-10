@@ -13,9 +13,9 @@
 - see `resources/application.properties`
 
 *TODO*:
-1. add init schema.sql
-2. add sharding sphere
-3. test db server tls version is too low, need to fix it
+- [ ] add init schema.sql
+- [ ] add sharding sphere
+- [ ] test db server tls version is too low, need to fix it
 
 
 ### For start up rabbitmq development
@@ -24,4 +24,5 @@
 - go to rabbitmq container,shell:`rabbitmq-plugins enable rabbitmq_stomp`
 
 *TODO*
-- add test page
+
+- [ ]  add test page
