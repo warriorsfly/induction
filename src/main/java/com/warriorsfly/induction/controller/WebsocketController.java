@@ -1,6 +1,6 @@
 package com.warriorsfly.induction.controller;
 
-import com.warriorsfly.induction.domain.Message;
+import com.warriorsfly.induction.domain.messages.Message;
 import org.springframework.data.redis.connection.stream.ObjectRecord;
 import org.springframework.data.redis.stream.StreamListener;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -16,7 +16,7 @@ public class WebsocketController implements StreamListener<String, ObjectRecord<
     @Override
     public void onMessage(ObjectRecord<String, Message> message) {
 //        if(message instanceof )
-        
+
     }
 
     @MessageMapping("/broadcast")

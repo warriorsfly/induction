@@ -1,6 +1,6 @@
 package com.warriorsfly.induction.configuration;
 
-import com.warriorsfly.induction.domain.Message;
+import com.warriorsfly.induction.domain.messages.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

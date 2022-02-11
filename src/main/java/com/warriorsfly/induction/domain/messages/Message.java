@@ -1,5 +1,7 @@
-package com.warriorsfly.induction.domain;
+package com.warriorsfly.induction.domain.messages;
 
+import com.warriorsfly.induction.domain.MessageReceiver;
+import com.warriorsfly.induction.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +18,7 @@ import java.util.UUID;
 public class Message<T extends Serializable,R extends Serializable>
         implements Serializable {
     private static final long serialVersionUID = 1L;
-    private UUID id;
+    private String id;
     /**
      * 消息体
      */
