@@ -10,7 +10,7 @@ services:
 
   postgres:
     image: postgres:alpine
-    container_name: induction
+    container_name: postgres
     environment:
       - POSTGRES_USER=allen
       - POSTGRES_PASSWORD=walker
