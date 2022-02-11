@@ -1,5 +1,6 @@
 package com.warriorsfly.induction.repository.message;
 
+import com.warriorsfly.induction.domain.MessageTo;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
@@ -14,9 +15,7 @@ public class MessageEntity {
      * 消息体
      */
     private String body;
-
     private UUID senderId;
-
-
+    private MessageTo to;
     private Timestamp createdTime;
 }
