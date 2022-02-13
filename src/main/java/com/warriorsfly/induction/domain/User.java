@@ -10,7 +10,7 @@ import java.util.UUID;
 @Data
 public class User implements Serializable {
     @Id
-    private UUID id;
+    private String id;
     /**
      * 所属应用
      */
@@ -30,8 +30,4 @@ public class User implements Serializable {
      * 别名
      */
     private String remark;
-    /**
-     * 是否机器人
-     */
-    private boolean isBot;
 }

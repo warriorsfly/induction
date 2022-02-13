@@ -1,28 +1,29 @@
-package com.warriorsfly.induction.repository.message;
+package com.warriorsfly.induction.domain.messages;
 
 import com.warriorsfly.induction.domain.MessageTo;
+import com.warriorsfly.induction.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.springframework.data.annotation.Id;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.UUID;
 
 @Data
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class MessageEntity {
+public class MessageForm implements Serializable {
 
-    @Id
+    private static final long serialVersionUID = 1L;
     private String id;
     /**
      * 消息体
      */
     private String body;
-    private String senderId;
-    private MessageTo to;
+    private User sender;
+    private MessageTo messageTo;
+    private String receiver;
     private Timestamp createdTime;
 }

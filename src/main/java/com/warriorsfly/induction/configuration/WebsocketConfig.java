@@ -9,26 +9,21 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebsocketConfig implements WebSocketMessageBrokerConfigurer {
+    public static  final String NOTIFICATIONS="notifications";
+    public static  final String BROADCASTS="broadcasts";
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
 
-        registry.addEndpoint("/chat").withSockJS();
-        registry.addEndpoint("/broadcast").withSockJS();//.setHeartbeatTime(25_000);
-        registry.addEndpoint("/group").withSockJS();//.setHeartbeatTime(25_000);
+        registry.addEndpoint(NOTIFICATIONS).withSockJS();
+        registry.addEndpoint(BROADCASTS).withSockJS();//.setHeartbeatTime(25_000);
     }
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        // for group ack,I think redis stream is a good choise,so stop using rabbitmq for now
-        // when tests passed, delete rabbitmq dependences
-        registry.enableSimpleBroker("/chat","/boardcast","/group");
-//        registry.setApplicationDestinationPrefixes("/app");
-//        registry.enableStompBrokerRelay("/topic", "/queue")
-//                .setAutoStartup(true)
-//                .setRelayHost("127.0.0.1")
-//                .setRelayPort(61613)
-//                .setClientLogin("guest")
-//                .setClientPasscode("guest");
+
+        registry.setApplicationDestinationPrefixes("/app");
+        registry.enableSimpleBroker(BROADCASTS,NOTIFICATIONS);
+
 
     }
 }
