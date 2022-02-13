@@ -4,12 +4,12 @@
 - task server
 - chat server
 ## Stacks
-- Spring boot stomp with rabbitmq
+- Spring boot stomp
 - Spring boot webflux
 - reactive database connection
-- maybe redis include
+- redis stream
 
-### For database development (default sql server)
+### For database development (default postgres)
 - see `resources/application.properties`
 
 *TODO*:
@@ -21,7 +21,6 @@
 ### For start up rabbitmq development
 - install docker desktop
 - shell `docker-compose up`
-- go to rabbitmq container,shell:`rabbitmq-plugins enable rabbitmq_stomp`
 
 *TODO*
 
