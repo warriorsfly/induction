@@ -9,13 +9,13 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class MessageConsumerController implements StreamListener<String, ObjectRecord<String, MessageForm>> {
+public class MessageConsumerController implements StreamListener<String, ObjectRecord<String, Message>> {
 
     @Autowired
     private SimpMessagingTemplate template;
 
     @Override
-    public void onMessage(ObjectRecord<String, MessageForm> message) {
+    public void onMessage(ObjectRecord<String, Message> message) {
 
 
     }

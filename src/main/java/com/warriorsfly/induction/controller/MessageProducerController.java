@@ -15,7 +15,6 @@ import reactor.core.publisher.Mono;
 @RestController(value = "/message")
 public class MessageProducerController {
 
-    @Value("${stream.key:medical-events}")
     private String key;
 
     @Autowired

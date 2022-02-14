@@ -7,6 +7,10 @@ public enum MessageTo {
      */
     USER,
     /**
+     * 分组
+     */
+    GROUP,
+    /**
      * 标签
      */
     Tag

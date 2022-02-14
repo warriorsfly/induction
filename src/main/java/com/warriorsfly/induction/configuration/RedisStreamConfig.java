@@ -1,5 +1,6 @@
 package com.warriorsfly.induction.configuration;
 
+import com.warriorsfly.induction.domain.messages.Message;
 import com.warriorsfly.induction.domain.messages.MessageForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,12 +22,12 @@ import java.time.Duration;
 @Configuration
 public class RedisStreamConfig {
 
-    @Value("${stream.key:medical-events}")
+    @Value("${stream.medical-events}")
     private String key;
 
 
     @Autowired
-    private StreamListener<String, ObjectRecord<String, MessageForm>> listener;
+    private StreamListener<String, ObjectRecord<String, Message>> listener;
 
     @Bean
     public Subscription subscription(RedisConnectionFactory factory) throws UnknownHostException {
@@ -34,7 +35,7 @@ public class RedisStreamConfig {
                 .StreamMessageListenerContainerOptions
                 .builder()
                 .pollTimeout(Duration.ofSeconds(1))
-                .targetType(MessageForm.class)
+                .targetType(Message.class)
                 .build();
         var container = StreamMessageListenerContainer
                 .create(factory, options);
