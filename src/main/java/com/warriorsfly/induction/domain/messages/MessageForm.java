@@ -1,7 +1,5 @@
 package com.warriorsfly.induction.domain.messages;
 
-import com.warriorsfly.induction.domain.MessageTo;
-import com.warriorsfly.induction.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,8 +19,8 @@ public class MessageForm implements Serializable {
     /**
      * 消息体
      */
-    private String body;
-    private User sender;
+    private Message body;
+    private String sender;
     private MessageTo messageTo;
     private String receiver;
     private Timestamp createdTime;

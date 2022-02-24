@@ -1,53 +1,45 @@
 package com.warriorsfly.induction.controller;
 
 
-import com.warriorsfly.induction.configuration.WebsocketConfig;
+import com.warriorsfly.induction.configuration.StompPrincipal;
+import com.warriorsfly.induction.domain.messages.Message;
 import com.warriorsfly.induction.domain.messages.MessageForm;
 import com.warriorsfly.induction.repository.message.MessageEntity;
 import com.warriorsfly.induction.repository.message.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.redis.connection.stream.StreamRecords;
-import org.springframework.data.redis.core.ReactiveRedisTemplate;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.messaging.simp.annotation.SendToUser;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
 import static com.warriorsfly.induction.configuration.WebsocketConfig.*;
 
-@RestController(value = "/message")
-public class MessageProducerController {
-
-    @Autowired
-    private ReactiveRedisTemplate<String, String> template;
-
+@Controller(value = "/message")
+public class MessageController {
     @Autowired
     private MessageRepository repository;
 
-    @PostMapping(value = "/create")
-    private Mono<MessageEntity> createMessage(MessageForm form){
-        String key;
-        switch (form.getMessageTo()){
-            case GROUP:
-                key = GROUPS;
-                break;
-            case Room:
-                key = BROADCASTS;
-                break;
-            default:
-                key = NOTIFICATIONS;
-                break;
-        }
-        var record = StreamRecords.newRecord()
-                .ofObject(form.getBody())
-                .withStreamKey(String.format("%s:%s",key,form.getReceiver()));
+    @Autowired
+    private SimpMessagingTemplate template;
 
-        return template
-                .opsForStream()
-                .add(record)
-                .flatMap(recordId -> {
-                    var message = new MessageEntity(recordId.getValue(),form.getBody(),form.getSender(),form.getMessageTo(),form.getCreatedTime());
-                    return repository.save(message);
-                });
+    @PostMapping(value = "/create")
+    private Mono<MessageEntity> createMessage(MessageForm form) {
+
+        var message = new MessageEntity(0,  form.getSender(),form.getBody().toString(), form.getMessageTo(),form.getReceiver(), form.getCreatedTime());
+        return repository.save(message).flatMap(item->{
+            switch (form.getMessageTo()) {
+
+                case Room:
+                    template.convertAndSend(BROADCASTS, form.getBody());
+                    break;
+                default:
+                    template.convertAndSendToUser(form.getReceiver(), NOTIFICATIONS, form.getBody());
+                    break;
+            }
+            return Mono.just(item);
+        });
     }
 }

@@ -1,4 +1,4 @@
-package com.warriorsfly.induction.domain;
+package com.warriorsfly.induction.domain.messages;
 
 public enum MessageTo {
     Room,
@@ -6,10 +6,6 @@ public enum MessageTo {
      * 给某人发消息
      */
     USER,
-    /**
-     * 分组
-     */
-    GROUP,
     /**
      * 标签
      */

@@ -1,5 +1,6 @@
-package com.warriorsfly.induction.domain;
+package com.warriorsfly.induction.domain.rooms;
 
+import com.warriorsfly.induction.domain.users.User;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 

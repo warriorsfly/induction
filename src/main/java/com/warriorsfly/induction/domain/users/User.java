@@ -1,11 +1,9 @@
-package com.warriorsfly.induction.domain;
+package com.warriorsfly.induction.domain.users;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
-import java.util.UUID;
 
 @Data
 public class User implements Serializable {

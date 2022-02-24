@@ -1,4 +1,4 @@
-package com.warriorsfly.induction.domain;
+package com.warriorsfly.induction.domain.users;
 
 /**
  * 用户类型
