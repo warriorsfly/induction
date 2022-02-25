@@ -1,8 +1,7 @@
-package com.warriorsfly.induction.configuration;
+package com.warriorsfly.col.configuration;
 
 import javax.security.auth.Subject;
 import java.security.Principal;
-import java.util.HashSet;
 
 public class StompPrincipal implements Principal {
     private final String username;

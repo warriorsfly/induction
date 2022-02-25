@@ -1,6 +1,6 @@
-package com.warriorsfly.induction.repository.message;
+package com.warriorsfly.col.repository.message;
 
-import com.warriorsfly.induction.domain.messages.MessageTo;
+import com.warriorsfly.col.domain.messages.MessageTo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,13 +1,13 @@
-package com.warriorsfly.induction;
+package com.warriorsfly.col;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class InductionApplicationTests {
+class ColApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }

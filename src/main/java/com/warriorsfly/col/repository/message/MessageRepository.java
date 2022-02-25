@@ -1,4 +1,4 @@
-package com.warriorsfly.induction.repository.message;
+package com.warriorsfly.col.repository.message;
 
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 

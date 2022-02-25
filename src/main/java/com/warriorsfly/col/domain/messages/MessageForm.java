@@ -1,4 +1,4 @@
-package com.warriorsfly.induction.domain.messages;
+package com.warriorsfly.col.domain.messages;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

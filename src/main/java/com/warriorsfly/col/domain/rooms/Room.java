@@ -1,25 +1,23 @@
-package com.warriorsfly.induction.domain.users;
+package com.warriorsfly.col.domain.rooms;
 
+import com.warriorsfly.col.domain.users.User;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.UUID;
 
 @Data
-public class User implements Serializable {
+public class Room implements Serializable {
     @Id
-    private String id;
+    private UUID id;
+
+    private User creator;
     /**
      * 所属应用
      */
     private String appId;
-    /**
-     * 用户类型
-     * Employee 职工
-     * Ip 指定Ip
-     * Bot 机器人
-     */
-    private UserType type;
     /**
      * 用户名
      */
@@ -28,4 +26,7 @@ public class User implements Serializable {
      * 别名
      */
     private String remark;
+
+    private Timestamp createTime;
+
 }

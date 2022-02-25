@@ -1,4 +1,4 @@
-package com.warriorsfly.induction.controller;
+package com.warriorsfly.col.controller;
 
 
 import org.springframework.web.bind.annotation.RestController;

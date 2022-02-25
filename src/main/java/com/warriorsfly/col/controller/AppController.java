@@ -1,10 +1,10 @@
-package com.warriorsfly.induction.controller;
+package com.warriorsfly.col.controller;
 
 
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController(value = "/user")
-public class UserController {
+@RestController(value = "/app")
+public class AppController {
 
 //    @PostMapping(value = "/create")
 //    private Mono<String> createMessage(String message){

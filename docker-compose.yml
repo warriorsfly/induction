@@ -6,7 +6,7 @@ services:
     environment:
       - POSTGRES_USER=allen
       - POSTGRES_PASSWORD=walker
-      - POSTGRES_DB=induction
+      - POSTGRES_DB=col
     ports:
       - "5432:5432"
 #  redis:
