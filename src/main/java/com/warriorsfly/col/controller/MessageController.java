@@ -1,8 +1,8 @@
 package com.warriorsfly.col.controller;
 
 
-import static com.warriorsfly.col.configuration.WebsocketConfig.BROADCASTS;
-import static com.warriorsfly.col.configuration.WebsocketConfig.NOTIFICATIONS;
+import static com.warriorsfly.col.configuration.web.WebsocketConfig.BROADCASTS;
+import static com.warriorsfly.col.configuration.web.WebsocketConfig.NOTIFICATIONS;
 
 import com.warriorsfly.col.domain.messages.MessageForm;
 import com.warriorsfly.col.repository.message.MessageEntity;

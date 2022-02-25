@@ -5,4 +5,4 @@ CREATE TABLE IF NOT EXISTS messages(
     message_to int,
     receiver text,
     created_time timestamp
-)
+);

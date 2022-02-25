@@ -1,4 +1,4 @@
-package com.warriorsfly.col.configuration;
+package com.warriorsfly.col.configuration.web;
 
 import javax.security.auth.Subject;
 import java.security.Principal;

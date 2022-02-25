@@ -1,11 +1,11 @@
-package com.warriorsfly.col.configuration;
+package com.warriorsfly.col.configuration.web;
+
+import java.security.Principal;
+import java.util.Map;
 
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.server.support.DefaultHandshakeHandler;
-
-import java.security.Principal;
-import java.util.Map;
 
 public class HandshakeHandler extends DefaultHandshakeHandler {
     @Override
