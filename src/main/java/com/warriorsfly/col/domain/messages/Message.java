@@ -1,6 +1,7 @@
 package com.warriorsfly.col.domain.messages;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -8,6 +9,7 @@ import lombok.ToString;
 import java.io.Serializable;
 
 @Data
+@Builder
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor

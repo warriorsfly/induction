@@ -2,6 +2,7 @@ package com.warriorsfly.col.repository.message;
 
 import com.warriorsfly.col.domain.messages.MessageTo;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -11,6 +12,7 @@ import org.springframework.data.relational.core.mapping.Table;
 import java.sql.Timestamp;
 
 @Data
+@Builder
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
