@@ -1,5 +1,6 @@
 package com.warriorsfly.col.controller;
 
+
 import static com.warriorsfly.col.configuration.web.WebsocketConfig.BROADCASTS;
 import static com.warriorsfly.col.configuration.web.WebsocketConfig.NOTIFICATIONS;
 
@@ -28,7 +29,7 @@ public class MessageController {
     private SimpMessagingTemplate template;
 
     @PostMapping(value = "/create")
-    private Mono<MessageEntity> createMessage(@RequestBody MessageForm form) {
+    private Mono<MessageEntity> sendToUser(@RequestBody MessageForm form) {
 
         var message = MessageEntity.builder()
                 .message_to(form.getMessageTo())
@@ -37,17 +38,34 @@ public class MessageController {
                 .receiver(form.getReceiver())
                 .created_time(form.getCreatedTime())
                 .build();
-        return repository.save(message).flatMap(item -> {
-            switch (form.getMessageTo()) {
+        switch (form.getMessageTo()) {
 
-                case Room:
-                    template.convertAndSend(BROADCASTS, form.getBody());
-                    break;
-                default:
-                    template.convertAndSendToUser(form.getReceiver(), NOTIFICATIONS, form.getBody());
-                    break;
-            }
-            return Mono.just(item);
-        });
+            case Room:
+                template.convertAndSend(BROADCASTS, form.getBody());
+                break;
+            default:
+                template.convertAndSendToUser(form.getReceiver(), NOTIFICATIONS, form.getBody());
+                break;
+        }
+        return Mono.just(message);
+    //     var message = MessageEntity.builder()
+    //     .message_to(form.getMessageTo())
+    //             .body(form.getBody().toString())
+    //             .sender(form.getSender())
+    //             .receiver(form.getReceiver())
+    //             .created_time(form.getCreatedTime())
+    //             .build();
+    //    return repository.save(message).flatMap(item->{
+    //         switch (form.getMessageTo()) {
+
+    //             case Room:
+    //                 template.convertAndSend(BROADCASTS, form.getBody());
+    //                 break;
+    //             default:
+    //                 template.convertAndSendToUser(form.getReceiver(), NOTIFICATIONS, form.getBody());
+    //                 break;
+    //         }
+    //         return Mono.just(item);
+    //     });
     }
 }
