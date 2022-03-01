@@ -1,5 +1,19 @@
 version: "3.8"
 services:
+  postgres:
+    image: postgres:alpine
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=allen
+      - POSTGRES_PASSWORD=walker
+      - POSTGRES_DB=col
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
   rabbit:
     image: rabbitmq:management
     container_name: rabbitmq
@@ -7,13 +21,3 @@ services:
       - "5672:5672"
       - "15672:15672"
       - "61613:61613"
-
-  postgres:
-    image: postgres:alpine
-    container_name: induction
-    environment:
-      - POSTGRES_USER=allen
-      - POSTGRES_PASSWORD=walker
-      - POSTGRES_DB=induction
-    ports:
-      - "5432:5432"
