@@ -8,6 +8,5 @@ package com.warriorsfly.col.domain.users;
  */
 public enum UserType {
     Employee,
-    Ip,
     Bot,
 }

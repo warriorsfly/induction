@@ -1,10 +1,24 @@
 package com.warriorsfly.col.controller;
 
 
+import com.warriorsfly.col.configuration.jwt.JwtUtil;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController(value = "/user")
 public class UserController {
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private JwtUtil jwtTokenUtil;
+
+    @Autowired
+    private UserDetailsService jwtInMemoryUserDetailsService;
 
 //    @PostMapping(value = "/create")
 //    private Mono<String> createMessage(String message){
