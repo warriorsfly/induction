@@ -3,10 +3,10 @@ package com.warriorsfly.col.configuration.web;
 import javax.security.auth.Subject;
 import java.security.Principal;
 
-public class StompPrincipal implements Principal {
+public class ColPrincipal implements Principal {
     private final String username;
 
-    public StompPrincipal(String username){
+    public ColPrincipal(String username){
         this.username=username;
     }
 
