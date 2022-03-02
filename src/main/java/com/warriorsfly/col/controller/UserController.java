@@ -1,7 +1,7 @@
 package com.warriorsfly.col.controller;
 
 
-import com.warriorsfly.col.configuration.jwt.JwtUtil;
+import com.warriorsfly.col.component.JWTUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,7 +15,7 @@ public class UserController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private JwtUtil jwtUtil;
+    private JWTUtil jwtUtil;
 
     @Autowired
     private UserDetailsService jwtInMemoryUserDetailsService;

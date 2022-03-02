@@ -3,6 +3,8 @@ CREATE TABLE IF NOT EXISTS users(
     type varchar(64),
     name varchar(64),
     body text,
+    private_key text,
+    public_key text NOT NULL,
     message_to varchar(64),
     receiver varchar(64),
     created_time timestamp

@@ -5,7 +5,6 @@ import java.security.Principal;
 
 public class ColPrincipal implements Principal {
     private final String username;
-
     public ColPrincipal(String username){
         this.username=username;
     }

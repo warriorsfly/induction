@@ -31,6 +31,9 @@ public class UserEntity {
      */
     private String name;
 
+    private String private_key;
+    private String public_key;
+
     /**
      * hash过的密码
      */
