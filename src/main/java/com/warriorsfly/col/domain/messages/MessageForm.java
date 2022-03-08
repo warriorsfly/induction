@@ -3,13 +3,11 @@ package com.warriorsfly.col.domain.messages;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Data
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessageForm implements Serializable {

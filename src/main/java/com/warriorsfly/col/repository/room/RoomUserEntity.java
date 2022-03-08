@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.sql.Timestamp;
 
@@ -13,7 +12,6 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Data
 @Builder
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Table("room_users")
